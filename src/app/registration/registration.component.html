@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card shadow">
+            <div class="card-body">
+              <h3 class="text-dark text-muted text-center">User Registration</h3>
+              <form [formGroup]="profileForm" (ngSubmit)="register()">
+                <div class="mb-3">
+                  <label for="firstName" class="form-label">First Name</label>
+                  <input type="text" class="form-control" formControlName="firstName" id="firstName" placeholder="Enter First Name">
+                  <div *ngIf="profileForm.get('firstName')?.invalid && profileForm.get('firstName')?.touched">
+                    <small class="text-danger">First name is required.</small>
+                  </div>
+                </div>
+  
+                <div class="mb-3">
+                  <label for="lastName" class="form-label">Last Name</label>
+                  <input type="text" class="form-control" formControlName="lastName" id="lastName" placeholder="Enter Last Name">
+                  <div *ngIf="profileForm.get('lastName')?.invalid && profileForm.get('lastName')?.touched">
+                    <small class="text-danger">Last name is required.</small>
+                  </div>
+                </div>
+  
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="email" formControlName="email" placeholder="Enter email">
+                  <div *ngIf="profileForm.get('email')?.invalid && profileForm.get('email')?.touched">
+                    <small class="text-danger">Enter a valid email address.</small>
+                  </div>
+                </div>
+  
+                <div class="mb-3">
+                  <label for="password" class="form-label">Password</label>
+                  <input type="password" class="form-control" formControlName="password" placeholder="Enter Password">
+                  <div *ngIf="profileForm.get('password')?.invalid && profileForm.get('password')?.touched">
+                    <small class="text-danger">Password must be at least 6 characters long.</small>
+                  </div>
+                </div>
+  
+                <!-- <button type="submit" class="btn btn-primary w-100" [disabled]="profileForm.invalid">Sign-up</button> -->
+                 <button type="submit" [disabled]="profileForm.invalid" color="primary" mat-raised-button>Sign-up</button>
+                <div class="text-center mt-3">
+                  <a routerLink="/login" style="text-decoration: none;">Have an account? <span class="text-danger">Login</span></a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    
+</body>
+</html>
