@@ -1,0 +1,52 @@
+/* Make the title centered */
+.responsive-title {
+    /* font-size: 2.5rem; Default size for larger screens */
+    font-weight: bold;
+    margin: 0;
+    text-align: center; /* Ensure the title is centered */
+  }
+  
+  @media (max-width: 768px) {
+    .responsive-title {
+      font-size: 1.8rem; /* Smaller size on tablets */
+    }
+    .mat-header-cell, .mat-cell {
+        font-size: 0.9rem; /* Smaller text on mobile */
+        padding: 8px; /* Reduced padding for smaller screens */
+      }
+  }
+  
+  @media (max-width: 480px) {
+    .responsive-title {
+      font-size: 1.5rem; /* Even smaller size on mobile */
+    }
+    .mat-header-cell, .mat-cell {
+        font-size: 0.8rem; /* Further reduce the font size */
+      }
+  }
+  
+  .card-header {
+    text-align: center; /* Centering the title in the header */
+  }
+  
+  .table-responsive {
+    display: flex;
+    justify-content: center; /* Center the table within the card body */
+  }
+  
+  .mat-table {
+    width: 100%; /* Ensure table spans across */
+    max-width: 100%;
+    margin: 0 auto; /* Center the table horizontally */
+  }
+  
+  /* Add spacing between columns in the table */
+  .mat-header-cell, .mat-cell {
+    padding: 16px; /* Add spacing between columns */
+  }
+  
+  /* Optional: For better readability */
+  .mat-sort-header-sorted {
+    font-weight: bold;
+  }
+  

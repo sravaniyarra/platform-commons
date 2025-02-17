@@ -29,6 +29,16 @@ export class EventDetailsComponent implements OnInit {
       this.currentUser = user; // Ensure currentUser is set
       this.loadEvents(); // Load events after setting currentUser
     });
+      // this.authService.getCurrentUser().subscribe(user => {
+      //   this.currentUser = user; // Ensure currentUser is set before loading events
+      //   console.log('Current User:', this.currentUser); // Debug log
+    
+      //   if (this.currentUser) {
+      //     this.loadEvents(); // Load events AFTER setting currentUser
+      //   }
+      // });
+    
+    
   }
 
   loadEvents() {
@@ -76,5 +86,9 @@ export class EventDetailsComponent implements OnInit {
         alert('Error deleting event');
       });
     }
+  }
+
+  logout(){
+      this.router.navigate(['/login'])
   }
 }

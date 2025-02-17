@@ -1,6 +1,14 @@
 <div class="container mt-5">
 
-  <!-- Create Event Button (Centered and inside a card) -->
+   <!-- Header with Centered Title and Logout Button -->
+   <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap">
+    <h4 class="text-center responsive-title flex-grow-1"> Event Management</h4>
+    <button mat-raised-button color="warn" (click)="logout()" class="btn-lg ">
+      Logout
+    </button>
+  </div> 
+
+  <!-- Create Event Button -->
   <div class="row justify-content-center mb-4">
     <div class="col-md-6">
       <div class="card">
@@ -12,11 +20,11 @@
   </div>
 
   <!-- Event Table wrapped in Card -->
-  <div class="row justify-content-center mb-4">
+  <div class="row justify-content-center mb-10">
     <div class="col-md-8">
       <div class="card">
-        <div class="card-header">
-          <h3 class="card-title text-center">Event List</h3>
+        <div class="card-header text-center">
+          <h3 class="card-title">Event List</h3>
         </div>
         <div class="card-body">
           <div class="table-responsive">
@@ -86,6 +94,7 @@
           <p><strong>Description:</strong> {{ newEvent.description }}</p>
           <p><strong>Location:</strong> {{ newEvent.location }}</p>
           <div class="text-center mt-4">
+            <!-- Button (optional) to go back to the event list -->
             <!-- <button mat-raised-button color="primary" (click)="newEvent = {}" class="btn-lg w-50">Back to Events</button> -->
           </div>
         </div>
