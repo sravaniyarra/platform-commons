@@ -1,15 +1,12 @@
 {
-    "events": {
-      "1": {
-        "title": "Do the epic",
-        "description": "Book was written by Ankur Warikoo",
+    "events": [
+      {
+        "id": 1,
+        "title": "Angular Workshop",
+        "description": "Learn Angular from scratch",
         "location": "Hyderabad"
-      },
-      "2": {
-        "title": "HI",
-        "description": "Hello",
-        "location": "How are you"
       }
-    }
+    ]
   }
+  
   
