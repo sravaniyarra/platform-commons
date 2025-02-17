@@ -1,10 +1,11 @@
 {
   "events": [
     {
-      "id": "683a",
+      "id": 1 ,
       "title": "jhgvhjgf",
       "description": "sdjfgjdsdf",
-      "location": "sdjgfjhdsf"
+      "location": "sdjgfjhdsf",
+      "createdBy": "userId123"
     }
   ]
 }

@@ -3,6 +3,7 @@ import { EventService } from '../shared/event.service';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { EventFormComponent } from '../event-form/event-form.component';
+import { AuthService } from '../shared/auth.service';
 
 @Component({
   selector: 'app-event-details',
@@ -10,16 +11,20 @@ import { EventFormComponent } from '../event-form/event-form.component';
   styleUrls: ['./event-details.component.css']
 })
 export class EventDetailsComponent implements OnInit {
-  // opened = false;
   events: any[] = [];
   newEvent = { id: '', title: '', description: '', location: '' };
-  isEditMode = false;
-  indexselectedtoEdit: any;
+  currentUser: any = {};  // Store current logged-in user details
 
-  constructor(private event: EventService, private router: Router, private dialog: MatDialog) {}
+  constructor(
+    private event: EventService,
+    private router: Router,
+    private dialog: MatDialog,
+    private authService: AuthService
+  ) {}
 
   ngOnInit() {
     this.loadEvents();
+    this.currentUser = this.authService.getCurrentUser();  // Get current user
   }
 
   loadEvents() {
@@ -31,34 +36,44 @@ export class EventDetailsComponent implements OnInit {
   openEventForm() {
     const dialogRef = this.dialog.open(EventFormComponent);
 
-    // Refresh events when the dialog is closed
     dialogRef.afterClosed().subscribe(() => {
       this.loadEvents();
     });
   }
 
   onEdit(event: any) {
+    if (event.createdBy !== this.currentUser?.uid) {
+      alert('You are not authorized to edit this event');
+      return;
+    }
+
     const dialogRef = this.dialog.open(EventFormComponent, {
       width: '400px',
-      data: event // Pass event data for editing
+      data: event
     });
-  
+
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.loadEvents(); // Reload events after update
+        this.loadEvents();
       }
     });
   }
-  
+
   viewDetails(event: any) {
     this.newEvent = { ...event };
   }
 
   onDelete(eventId: number) {
+    const event = this.events.find(e => e.id === eventId);
+    if (event?.createdBy !== this.currentUser?.uid) {
+      alert('You are not authorized to delete this event');
+      return;
+    }
+
     if (confirm('Are you sure you want to delete this event?')) {
       this.event.deleteEvent(eventId).subscribe(() => {
         alert('Event deleted successfully');
-        this.loadEvents(); // Refresh the list after deletion
+        this.loadEvents();
       });
     }
   }
