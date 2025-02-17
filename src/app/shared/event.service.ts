@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Events } from '../models/event.model';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,11 @@ export class EventService {
   constructor(private http : HttpClient) { }
   // private apiUrl = 'https://sravaniyarra.github.io/dbJson/db.json';
   // private apiUrl ='http://localhost:3000/events'
-   private apiUrl = 'https://platform-commons-api-7ee5639348b6.herokuapp.com'
+  //  private apiUrl = 'https://platform-commons-api-7ee5639348b6.herokuapp.com'
+
+ 
+    private apiUrl = environment.apiUrl;
+
   
   //Get All Events
    getAllEvents(): Observable<Events[]>{
