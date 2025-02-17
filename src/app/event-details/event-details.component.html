@@ -20,9 +20,10 @@
           </tr>
         </thead>
         <tbody>
+          
           <tr *ngFor="let event of events; index as i">
             <td>{{i+1}}</td>
-            <td>{{event.title}}</td>
+            <td><p *ngIf="event">{{event.title}}</p></td>
             <td><button type="button" mat-raised-button color="accent" (click)="viewDetails(event)">View</button></td>
             <td><button mat-icon-button color="primary"(click)="onEdit(event)">
               <mat-icon>edit</mat-icon>

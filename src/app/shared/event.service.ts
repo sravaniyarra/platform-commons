@@ -9,7 +9,8 @@ import { Events } from '../models/event.model';
 export class EventService {
 
   constructor(private http : HttpClient) { }
-  private apiUrl = 'https://sravaniyarra.github.io/dbJson/db.json';
+  // private apiUrl = 'https://sravaniyarra.github.io/dbJson/db.json';
+  private apiUrl ='http://localhost:3000/events'
   
   //Get All Events
    getAllEvents(): Observable<Events[]>{
