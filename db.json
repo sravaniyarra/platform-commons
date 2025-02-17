@@ -1,12 +1,10 @@
 {
-    "events": [
-      {
-        "id": 1,
-        "title": "Angular Workshop",
-        "description": "Learn Angular from scratch",
-        "location": "Hyderabad"
-      }
-    ]
-  }
-  
-  
+  "events": [
+    {
+      "id": 1,
+      "title": "Angular Workshop",
+      "description": "Learn Angular from scratch",
+      "location": "Hyderabad"
+    }
+  ]
+}

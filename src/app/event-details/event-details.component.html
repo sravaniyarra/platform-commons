@@ -21,7 +21,7 @@
         </thead>
         <tbody>
           
-          <tr *ngFor="let event of events; index as i">
+          <tr *ngFor="let event of events  ;index as i">
             <td>{{i+1}}</td>
             <td><p *ngIf="event">{{event.title}}</p></td>
             <td><button type="button" mat-raised-button color="accent" (click)="viewDetails(event)">View</button></td>
