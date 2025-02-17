@@ -9,6 +9,6 @@ export const environment = {
         appId: "1:787017623000:web:3eae899c49da7ecd287ead",
         measurementId: "G-D26QBVE7H5"
     },
-    apiUrl: 'http://localhost:3000/events'
+    // apiUrl: 'http://localhost:3000/events'
 }
 

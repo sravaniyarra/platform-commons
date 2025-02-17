@@ -12,10 +12,10 @@ export class EventService {
   constructor(private http : HttpClient) { }
   // private apiUrl = 'https://sravaniyarra.github.io/dbJson/db.json';
   // private apiUrl ='http://localhost:3000/events'
-  //  private apiUrl = 'https://platform-commons-api-7ee5639348b6.herokuapp.com'
+   private apiUrl = 'https://platform-commons-api-7ee5639348b6.herokuapp.com/events'
 
  
-    private apiUrl = environment.apiUrl;
+    // private apiUrl = environment.apiUrl;
 
   
   //Get All Events
